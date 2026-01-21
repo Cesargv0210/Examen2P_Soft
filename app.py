@@ -1,7 +1,7 @@
-#importamos las librerias a usar en nuestra página
 import streamlit as st
 import pandas as pd
 import numpy as np
+import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 
 #Configuracion de la pagina
@@ -23,10 +23,7 @@ st.markdown("""
        </p>
        </div>
        """, unsafe_allow_html=True)
-st.image(
-    "ImgCampo.jpg",
-    use_container_width=True
-)
+
 #Realizacion del menu usando sidebar
 with st.sidebar:
     st.markdown(
@@ -73,8 +70,6 @@ with st.sidebar:
 
 #Seccion HOME
 if selected == "Home":
-
-    # --- HERO SECTION ---
     st.markdown("""
     <div style="
         background: linear-gradient(135deg, #0e1117, #1f2933);
@@ -94,5 +89,10 @@ if selected == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-    # --- IMAGEN DEBAJO DEL HERO ---
+elif selected == "Data":
+    st.title("Datos cargados del campo VOLVE")
 
+    main_col1, main_col2 = st.columns([1, 3], gap="large")
+
+elif selected == "Plots":
+    st.title("Gráficos resultado de los datos")
